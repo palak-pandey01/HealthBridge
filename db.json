@@ -1,0 +1,545 @@
+{
+  "patients": [],
+  "doctors": [
+    {
+      "id": 1,
+      "name": "Dr. John Smith",
+      "email": "john.smith@healthbridge.com",
+      "password": "$2a$10$cSa/.nsY/Zc.4El2wIAMzeLBBpLqad/eM/z1NkEOXb3lASpGdgz4G",
+      "specialty": "Cardiologist",
+      "rating": 4.9,
+      "reviews": 127,
+      "photo": "https://randomuser.me/api/portraits/men/32.jpg",
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "Dr. Sarah Johnson",
+      "email": "sarah.johnson@healthbridge.com",
+      "password": "$2a$10$cSa/.nsY/Zc.4El2wIAMzeLBBpLqad/eM/z1NkEOXb3lASpGdgz4G",
+      "specialty": "Dentist",
+      "rating": 4.8,
+      "reviews": 89,
+      "photo": "https://randomuser.me/api/portraits/women/44.jpg",
+      "available": true
+    },
+    {
+      "id": 3,
+      "name": "Dr. Michael Lee",
+      "email": "michael.lee@healthbridge.com",
+      "password": "$2a$10$cSa/.nsY/Zc.4El2wIAMzeLBBpLqad/eM/z1NkEOXb3lASpGdgz4G",
+      "specialty": "Neurologist",
+      "rating": 4.9,
+      "reviews": 203,
+      "photo": "https://randomuser.me/api/portraits/men/52.jpg",
+      "available": true
+    }
+  ],
+  "slots": [
+    {
+      "id": 1,
+      "doctor_id": 1,
+      "slot_time": "09:00 AM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 2,
+      "doctor_id": 1,
+      "slot_time": "10:00 AM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 3,
+      "doctor_id": 1,
+      "slot_time": "11:30 AM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 4,
+      "doctor_id": 1,
+      "slot_time": "01:00 PM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 5,
+      "doctor_id": 1,
+      "slot_time": "02:00 PM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 6,
+      "doctor_id": 1,
+      "slot_time": "03:30 PM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 7,
+      "doctor_id": 1,
+      "slot_time": "05:00 PM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 8,
+      "doctor_id": 1,
+      "slot_time": "06:00 PM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 9,
+      "doctor_id": 1,
+      "slot_time": "09:00 AM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 10,
+      "doctor_id": 1,
+      "slot_time": "10:00 AM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 11,
+      "doctor_id": 1,
+      "slot_time": "11:30 AM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 12,
+      "doctor_id": 1,
+      "slot_time": "01:00 PM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 13,
+      "doctor_id": 1,
+      "slot_time": "02:00 PM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 14,
+      "doctor_id": 1,
+      "slot_time": "03:30 PM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 15,
+      "doctor_id": 1,
+      "slot_time": "05:00 PM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 16,
+      "doctor_id": 1,
+      "slot_time": "06:00 PM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 17,
+      "doctor_id": 1,
+      "slot_time": "09:00 AM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 18,
+      "doctor_id": 1,
+      "slot_time": "10:00 AM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 19,
+      "doctor_id": 1,
+      "slot_time": "11:30 AM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 20,
+      "doctor_id": 1,
+      "slot_time": "01:00 PM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 21,
+      "doctor_id": 1,
+      "slot_time": "02:00 PM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 22,
+      "doctor_id": 1,
+      "slot_time": "03:30 PM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 23,
+      "doctor_id": 1,
+      "slot_time": "05:00 PM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 24,
+      "doctor_id": 1,
+      "slot_time": "06:00 PM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 25,
+      "doctor_id": 2,
+      "slot_time": "09:00 AM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 26,
+      "doctor_id": 2,
+      "slot_time": "10:00 AM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 27,
+      "doctor_id": 2,
+      "slot_time": "11:30 AM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 28,
+      "doctor_id": 2,
+      "slot_time": "01:00 PM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 29,
+      "doctor_id": 2,
+      "slot_time": "02:00 PM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 30,
+      "doctor_id": 2,
+      "slot_time": "03:30 PM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 31,
+      "doctor_id": 2,
+      "slot_time": "05:00 PM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 32,
+      "doctor_id": 2,
+      "slot_time": "06:00 PM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 33,
+      "doctor_id": 2,
+      "slot_time": "09:00 AM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 34,
+      "doctor_id": 2,
+      "slot_time": "10:00 AM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 35,
+      "doctor_id": 2,
+      "slot_time": "11:30 AM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 36,
+      "doctor_id": 2,
+      "slot_time": "01:00 PM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 37,
+      "doctor_id": 2,
+      "slot_time": "02:00 PM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 38,
+      "doctor_id": 2,
+      "slot_time": "03:30 PM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 39,
+      "doctor_id": 2,
+      "slot_time": "05:00 PM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 40,
+      "doctor_id": 2,
+      "slot_time": "06:00 PM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 41,
+      "doctor_id": 2,
+      "slot_time": "09:00 AM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 42,
+      "doctor_id": 2,
+      "slot_time": "10:00 AM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 43,
+      "doctor_id": 2,
+      "slot_time": "11:30 AM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 44,
+      "doctor_id": 2,
+      "slot_time": "01:00 PM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 45,
+      "doctor_id": 2,
+      "slot_time": "02:00 PM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 46,
+      "doctor_id": 2,
+      "slot_time": "03:30 PM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 47,
+      "doctor_id": 2,
+      "slot_time": "05:00 PM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 48,
+      "doctor_id": 2,
+      "slot_time": "06:00 PM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 49,
+      "doctor_id": 3,
+      "slot_time": "09:00 AM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 50,
+      "doctor_id": 3,
+      "slot_time": "10:00 AM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 51,
+      "doctor_id": 3,
+      "slot_time": "11:30 AM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 52,
+      "doctor_id": 3,
+      "slot_time": "01:00 PM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 53,
+      "doctor_id": 3,
+      "slot_time": "02:00 PM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 54,
+      "doctor_id": 3,
+      "slot_time": "03:30 PM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 55,
+      "doctor_id": 3,
+      "slot_time": "05:00 PM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 56,
+      "doctor_id": 3,
+      "slot_time": "06:00 PM",
+      "slot_date": "2026-05-21",
+      "is_booked": false
+    },
+    {
+      "id": 57,
+      "doctor_id": 3,
+      "slot_time": "09:00 AM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 58,
+      "doctor_id": 3,
+      "slot_time": "10:00 AM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 59,
+      "doctor_id": 3,
+      "slot_time": "11:30 AM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 60,
+      "doctor_id": 3,
+      "slot_time": "01:00 PM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 61,
+      "doctor_id": 3,
+      "slot_time": "02:00 PM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 62,
+      "doctor_id": 3,
+      "slot_time": "03:30 PM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 63,
+      "doctor_id": 3,
+      "slot_time": "05:00 PM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 64,
+      "doctor_id": 3,
+      "slot_time": "06:00 PM",
+      "slot_date": "2026-05-22",
+      "is_booked": false
+    },
+    {
+      "id": 65,
+      "doctor_id": 3,
+      "slot_time": "09:00 AM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 66,
+      "doctor_id": 3,
+      "slot_time": "10:00 AM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 67,
+      "doctor_id": 3,
+      "slot_time": "11:30 AM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 68,
+      "doctor_id": 3,
+      "slot_time": "01:00 PM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 69,
+      "doctor_id": 3,
+      "slot_time": "02:00 PM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 70,
+      "doctor_id": 3,
+      "slot_time": "03:30 PM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 71,
+      "doctor_id": 3,
+      "slot_time": "05:00 PM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    },
+    {
+      "id": 72,
+      "doctor_id": 3,
+      "slot_time": "06:00 PM",
+      "slot_date": "2026-05-23",
+      "is_booked": false
+    }
+  ],
+  "appointments": []
+}
