@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthBridge - Book Doctor Appointments</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>HealthBridge</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#doctors" class="nav-link">Doctors</a></li>
+                <li class="nav-item" id="dashboardNavItem" style="display:none;"><a href="#" class="nav-link" id="dashboardNavBtn"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li class="nav-item btn-login" id="authNavItem">
+                    <a href="#login" class="nav-link login-btn" id="loginNavBtn">Login</a>
+                </li>
+                <li class="nav-item" id="userNavItem" style="display:none;">
+                    <div class="user-nav">
+                        <span id="userNavName"></span>
+                        <button class="btn-logout" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Find & Book Your Doctor Instantly</h1>
+                <p>Connect with top healthcare providers. Search, book, and manage appointments seamlessly.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary btn-book" id="heroBookBtn">
+                        <i class="fas fa-calendar-check"></i> Book Appointment
+                    </button>
+                    <button class="btn-secondary" onclick="document.getElementById('doctors').scrollIntoView({behavior:'smooth'})">
+                        <i class="fas fa-search"></i> Find Doctors
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card">
+                    <i class="fas fa-stethoscope"></i>
+                    <span>2000+ Doctors</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <h2>Find the Right Doctor</h2>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search doctors or specialties...">
+                <select id="specialtyFilter">
+                    <option value="">All Specialties</option>
+                    <option>Cardiology</option>
+                    <option>Dentistry</option>
+                    <option>Neurology</option>
+                </select>
+                <button class="btn-primary" id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="doctors-section">
+        <div class="container">
+            <h2>Top Doctors</h2>
+            <div class="doctors-grid" id="doctorsGrid">
+                <!-- Loaded dynamically -->
+                <div class="loading-spinner"><i class="fas fa-spinner fa-spin"></i> Loading doctors...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PATIENT DASHBOARD ═══ -->
+    <section id="patientDashboard" class="dashboard-section" style="display:none;">
+        <div class="container">
+
+            <!-- Profile Card -->
+            <div class="profile-card">
+                <div class="profile-avatar patient-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-info">
+                    <h2 id="pd-name"></h2>
+                    <span class="role-badge patient-badge"><i class="fas fa-user"></i> Patient</span>
+                    <div class="profile-details">
+                        <div class="profile-detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span id="pd-email"></span>
+                        </div>
+                        <div class="profile-detail-item" id="pd-phone-row" style="display:none;">
+                            <i class="fas fa-phone"></i>
+                            <span id="pd-phone"></span>
+                        </div>
+                        <div class="profile-detail-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <span id="pd-appt-count">0 appointments</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <div>
+                        <h3 id="stat-total">0</h3>
+                        <p>Total Bookings</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h3 id="stat-confirmed">0</h3>
+                        <p>Confirmed</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-times-circle"></i>
+                    <div>
+                        <h3 id="stat-cancelled">0</h3>
+                        <p>Cancelled</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appointments List -->
+            <h3 class="section-subtitle"><i class="fas fa-list"></i> My Appointments</h3>
+            <div id="appointmentsList" class="appointments-list"></div>
+        </div>
+    </section>
+
+    <!-- ═══ DOCTOR DASHBOARD ═══ -->
+    <section id="doctorDashboard" class="dashboard-section" style="display:none;">
+        <div class="container">
+
+            <!-- Profile Card -->
+            <div class="profile-card">
+                <div class="profile-avatar doctor-avatar-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div class="profile-info">
+                    <h2 id="dd-name"></h2>
+                    <span class="role-badge doctor-badge"><i class="fas fa-stethoscope"></i> Doctor</span>
+                    <div class="profile-details">
+                        <div class="profile-detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span id="dd-email"></span>
+                        </div>
+                        <div class="profile-detail-item">
+                            <i class="fas fa-stethoscope"></i>
+                            <span id="dd-specialty"></span>
+                        </div>
+                        <div class="profile-detail-item">
+                            <i class="fas fa-users"></i>
+                            <span id="dd-patient-count">0 patients</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div>
+                        <h3 id="dstat-total">0</h3>
+                        <p>Total Appointments</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-calendar-day"></i>
+                    <div>
+                        <h3 id="dstat-today">0</h3>
+                        <p>Today</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-user-friends"></i>
+                    <div>
+                        <h3 id="dstat-patients">0</h3>
+                        <p>Unique Patients</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appointments List -->
+            <h3 class="section-subtitle"><i class="fas fa-list"></i> Patient Appointments</h3>
+            <div id="doctorAppointmentsList" class="appointments-list"></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ LOGIN MODAL ═══════════════ -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="loginClose">&times;</span>
+            <div class="login-tabs">
+                <button class="tab-btn active" data-tab="patient">Patient</button>
+                <button class="tab-btn" data-tab="doctor">Doctor</button>
+            </div>
+
+            <!-- Patient Login -->
+            <form class="login-form active" id="patientForm">
+                <h3>Patient Login</h3>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="patientEmail" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="patientPassword" placeholder="Password" required>
+                </div>
+                <div id="patientLoginError" class="form-error"></div>
+                <button type="submit" class="btn-primary full-width">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <p class="signup-link">Don't have an account? <a href="#" id="openSignupLink">Sign up</a></p>
+            </form>
+
+            <!-- Doctor Login -->
+            <form class="login-form" id="doctorForm">
+                <h3>Doctor Login</h3>
+                <div class="input-group">
+                    <i class="fas fa-user-md"></i>
+                    <input type="email" id="doctorEmail" placeholder="Doctor Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="doctorPassword" placeholder="Password" required>
+                </div>
+                <div id="doctorLoginError" class="form-error"></div>
+                <button type="submit" class="btn-primary full-width">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <p class="signup-link">New doctor? <a href="#" id="openDoctorSignupLink">Register here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ═══════════════ SIGNUP MODAL ═══════════════ -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="signupClose">&times;</span>
+            <div class="signup-modal-inner">
+                <div class="signup-modal-header patient-signup-header">
+                    <i class="fas fa-user-plus"></i>
+                    <h3>Create Patient Account</h3>
+                </div>
+                <form id="signupForm" class="signup-form">
+                    <div class="sfield">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="signupName" placeholder="Full Name" required>
+                    </div>
+                    <div class="sfield">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="signupEmail" placeholder="Email" required>
+                    </div>
+                    <div class="sfield">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="signupPhone" placeholder="Phone (optional)">
+                    </div>
+                    <div class="sfield">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="signupPassword" placeholder="Password (min 6 chars)" required minlength="6">
+                    </div>
+                    <div id="signupError" class="form-error"></div>
+                    <button type="submit" class="btn-primary sbtn">
+                        <i class="fas fa-user-plus"></i> Create Account
+                    </button>
+                    <p class="slink">Already have an account? <a href="#" id="backToLoginLink">Login</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ DOCTOR SIGNUP MODAL ═══════════════ -->
+    <div id="doctorSignupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="doctorSignupClose">&times;</span>
+            <div class="signup-modal-inner">
+                <div class="signup-modal-header doctor-signup-header">
+                    <i class="fas fa-user-md"></i>
+                    <h3>Doctor Registration</h3>
+                </div>
+                <form id="doctorSignupForm" class="signup-form">
+                    <div class="sfield">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="dsName" placeholder="Full Name (e.g. Dr. John Smith)" required>
+                    </div>
+                    <div class="sfield">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="dsEmail" placeholder="Email" required>
+                    </div>
+                    <div class="sfield">
+                        <i class="fas fa-stethoscope"></i>
+                        <select id="dsSpecialty" required>
+                            <option value="">-- Select Specialty --</option>
+                            <option>Cardiologist</option>
+                            <option>Dentist</option>
+                            <option>Neurologist</option>
+                            <option>Dermatologist</option>
+                            <option>Orthopedic</option>
+                            <option>Pediatrician</option>
+                            <option>Psychiatrist</option>
+                            <option>General Physician</option>
+                            <option>ENT Specialist</option>
+                            <option>Ophthalmologist</option>
+                        </select>
+                    </div>
+                    <div class="sfield">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="dsPhone" placeholder="Phone (optional)">
+                    </div>
+                    <div class="sfield">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="dsPassword" placeholder="Password (min 6 chars)" required minlength="6">
+                    </div>
+                    <div id="doctorSignupError" class="form-error"></div>
+                    <button type="submit" class="btn-primary sbtn">
+                        <i class="fas fa-user-plus"></i> Register as Doctor
+                    </button>
+                    <p class="slink">Already registered? <a href="#" id="backToDoctorLoginLink">Login here</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ BOOKING MODAL ═══════════════ -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content booking-modal-content">
+            <span class="close" id="bookingClose">&times;</span>
+            <div id="bookingContent">
+                <div class="booking-doctor-info" id="bookingDoctorInfo"></div>
+                <h3 style="margin: 1.5rem 0 1rem; text-align:center;">Select Date & Time</h3>
+                <div class="date-tabs" id="dateTabs"></div>
+                <div class="slots-grid" id="slotsGrid"></div>
+                <div class="input-group" style="margin-top:1rem;">
+                    <i class="fas fa-notes-medical"></i>
+                    <input type="text" id="bookingNotes" placeholder="Notes / Reason for visit (optional)">
+                </div>
+                <div id="bookingError" class="form-error"></div>
+                <button class="btn-primary full-width" id="confirmBookingBtn" style="margin-top:1rem;" disabled>
+                    <i class="fas fa-calendar-check"></i> Confirm Appointment
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ SUCCESS TOAST ═══════════════ -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="nav-logo">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>HealthBridge</span>
+                    </div>
+                    <p>Your trusted healthcare partner for seamless doctor appointments.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#doctors">Find Doctors</a></li>
+                        <li><a href="#appointments">My Appointments</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 HealthBridge. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
