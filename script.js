@@ -1,4 +1,4 @@
-const API = 'http://localhost:3001/api';
+const API ='https://healthbridge-api.onrender.com/api';
 
 // ─── State ────────────────────────────────────────────────────────────────────
 let currentUser = JSON.parse(localStorage.getItem('hb_user') || 'null');
