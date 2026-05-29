@@ -10,7 +10,7 @@ const PORT       = 3001;
 const JWT_SECRET = 'healthbridge_secret_2024';
 const DB_FILE    = path.join(__dirname, 'db.json');
 
-app.use(cors({ origin:'https://palak-pandey01.github.io' }));
+app.use(cors({ origin:'*' }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '..')));
 
